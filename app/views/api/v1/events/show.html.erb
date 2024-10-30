@@ -1,0 +1,20 @@
+<div class='flex lg:justify-center md:justify-center sm:justify-end flex-col items-center w-full'>
+  <div class='flex w-full justify-center items-center event-show'>
+    <% if is_user_event(@event, current_user)%>
+      <button type='button' class="btn-delete-event bg-[#f00]" data-id="<%= @event.id %>" onclick="editEvent(this)">
+        <i class='fas fa-edit'></i>
+      </button>
+      <div class="inline-block mx-2">
+        <button type='button' class="btn-delete-event bg-[#f00]" data-id="<%= @event.id %>" onclick="deleteEvent(this)">
+          <i class='fas fa-trash'></i>
+        </button>
+      </div>
+    <% end %>
+    <button class='xs:text-[#000]' onclick='viewAllEvents()'><i class='fas fa-arrow-left'></i> Back to events</button>
+  </div>
+  <div class='flex w-full'>
+    <div id='events' class='min-w-full'>
+      <%= render @event %>
+    </div>
+  </div>
+</div>

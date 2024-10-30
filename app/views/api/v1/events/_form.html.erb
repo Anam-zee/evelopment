@@ -1,0 +1,42 @@
+<%= form_with(model: [:events, event], id: id) do |form| %>
+  <div class='field'>
+    <%= form.label :name %>
+    <%= form.text_field :name, class: 'form-control', onChange: 'validateInput(this)' %>
+    <label id='event_name_field_error' class='event-error'></label>
+  </div>
+
+  <div class='field'>
+    <%= form.label :description %>
+    <%= form.text_area :description, rows: 4, class: 'form-control', onChange: 'validateInput(this)' %>
+    <label id='event_description_field_error' class='event-error'></label>
+  </div>
+
+  <div class='field'>
+    <%= form.label :date %>
+    <%= form.date_field :date, class: 'form-control', onChange: 'validateInput(this)' %>
+    <label id='event_date_field_error' class='event-error'></label>
+  </div>
+
+  <div class='field'>
+    <%= form.label :location %>
+    <%= form.text_field :location, class: 'form-control', onChange: 'validateInput(this)' %>
+    <label id='event_location_field_error' class='event-error'></label>
+  </div>
+
+  <div class='actions'>
+    <%= form.submit %>
+  </div>
+<% end %>
+
+<script>
+  setTimeout(() => {
+    document.getElementById('create_form').addEventListener('submit', function(event) {
+      createEvent(event, this)
+    })
+  }, 200)
+  setTimeout(() => {
+    document.getElementById('edit_form').addEventListener('submit', function(event) {
+      updateEvent(event, this)
+    })
+  }, 200)
+</script>

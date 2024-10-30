@@ -1,0 +1,212 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .notice, .alert {
+    @apply
+      bg-orange 
+      text-grey
+      border 
+      rounded-md 
+      shadow-md 
+      text-white
+      max-w-fit
+      max-h-fit
+      p-5
+  }
+
+  .main-heading {
+    @apply font-bold text-3xl
+  }
+
+  .card {
+    @apply
+      w-full
+      max-w-sm
+      p-4
+      border
+      border-grey
+      rounded-lg
+      shadow
+      sm:p-6
+      md:p-8
+      bg-green
+      border-grey
+  }
+  
+  .card form {
+    @apply
+      space-y-6
+  }
+
+  .card label {
+    @apply
+      block
+      mb-2
+      text-sm
+      font-medium
+      text-purple
+  }
+
+  .card .event-error {
+    @apply
+      block
+      mb-2
+      text-sm
+      font-medium
+      text-[#f00]
+  }
+
+  .card input[type="checkbox"] {
+    @apply
+      text-green
+      bg-green-dark
+      border-grey
+      rounded
+      focus:ring-green-xdark
+      focus:ring-2
+      w-2
+      text-green-xdark
+     }
+
+  .card h1, .heading {
+    @apply
+      text-3xl
+      text-center
+      text-purple
+      font-bold
+  }
+
+  .events {
+    @apply
+      h-full
+      flex
+      justify-start
+      m-4
+  }
+
+  .card input, .card textarea {
+    @apply
+      bg-white
+      text-grey
+      text-sm
+      rounded-lg
+      focus:border-green-xdark
+      block
+      w-full
+      p-2.5
+    }
+
+  .card input[type="submit"] {
+    @apply
+      bg-green-xdark
+      border
+      border-grey
+      text-white
+      text-sm
+      rounded-lg
+      focus:border-green
+      block
+      w-full
+      p-2.5
+  }
+
+  .right-nav a, .right-nav button, .event-show a, .event-show button, .event-card a, .event-card button {
+    @apply
+      bg-green-xdark
+      border
+      border-grey
+      text-white
+      text-sm
+      rounded-lg
+      focus:border-green
+      p-2.5;
+    }
+
+  .card #error_explanation {
+    @apply
+      text-green-xdark
+      text-sm
+  }
+
+  .card .link {
+    @apply
+      font-medium
+      text-green-xdark
+      hover:underline 
+  }
+
+  .checkbox {
+    @apply
+      flex
+      items-center
+  }
+
+  .checkbox label {
+    @apply
+      ms-2
+      text-xs
+      font-medium
+      mx-1 my-0 
+  }
+
+  #events {
+    @apply
+      flex
+      flex-row
+      flex-wrap
+      grid-cols-2
+      gap-4
+      justify-center
+    }
+
+  .event-card {
+    @apply
+      w-full
+      md:w-2/5
+      border
+      border-green-xdark
+      bg-green
+      shadow-md
+      border-2
+      rounded-md
+      p-6
+      flex
+      flex-col
+      md:flex-row
+      justify-start;
+    @apply
+      m-12;
+    @apply
+      md:m-1
+  }
+
+  .event-card .event-name {
+    @apply
+      font-bold
+      text-green-xdark
+      text-3xl
+     }
+
+  .event-card .organizer {
+    @apply
+      text-grey
+      text-sm
+  }
+
+  .event-card p {
+    @apply
+      break-all
+  }
+
+  .event-card strong {
+    @apply
+      text-green-xdark
+  }
+
+  .avatar {
+    @apply
+      rounded-full
+  }
+}

@@ -1,0 +1,8 @@
+<% joiners.each do |joiner| %>
+  <div class="flex justify-start all-joiners">
+    <%= user_avatar_with_initials(joiner.name) %>
+    <div class="mx-4 flex justify-center items-center">
+      <%= (joiner.name) + " " + (joiner.eql?(current_user) ? "(You)" : "")%>
+    </div>
+  </div>
+<% end %>

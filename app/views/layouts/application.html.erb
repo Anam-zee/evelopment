@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html class="h-full bg-green-xlight">
+  <head>
+    <title>AaDevelopment</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+    <%= javascript_include_tag 'application' %>
+    <%= javascript_include_tag 'events' %>
+  </head>
+
+  <body class="h-full flex-col body">
+    <%= render "layouts/navbar" %>
+    <div class="main-cover h-full bg-green-light bg-cover bg-center pb-24" style="background-image: url('/bg-image.jpg');">
+      <% if notice.present? %>
+        <p class="notice"><%= notice %></p>
+      <% end %>
+      <% if alert.present? %>
+        <p class="alert"><%= alert %></p>
+      <% end %>
+      <div class="main-body flex h-full">
+        <%= yield %>
+      </div>
+    <div>
+  </body>
+</html>
+

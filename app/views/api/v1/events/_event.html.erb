@@ -1,0 +1,56 @@
+<div id="<%= dom_id event%>" class="event-card hover:bg-[#dde0bc]" >
+  <div>
+    <h1 class="event-name">
+      <%= event.name %>
+    </h1>
+    <p class="organizer">
+      Organized by <%= event.organizer.name %>
+    </p>
+
+    <p class="my-5 description">
+      <strong class="block font-medium mb-1">Details:</strong>
+      <%= event.description %>
+    </p>
+
+    <p class="my-5 date" >
+      <strong class="font-medium mb-1">Dated</strong>
+      <%= event.date %>
+    </p>
+
+    <p class="my-5 location">
+      <i class="fa-solid fa-location-dot"></i>
+      <%= event.location %>
+    </p>
+
+    <% if is_user_event(event, current_user)%>
+      <p class="block text-orange">You are organizing this event</p>
+    <% elsif is_joined(event, current_user) %>
+      <p class="block my-2"> <i class='fas fa-check'></i>Joined</p>
+      <button class='my-2' data-id="<%= event.id %>" onclick='leaveEvent(this)'>Leave Event</button>
+    <% else %>
+      <button class='my-2' data-id="<%= event.id %>" onclick='joinEvent(this)'>Join</button>
+    <% end %>
+
+    <% if action_name != "show" %>
+      <div>
+        <p class="mt-5">
+          Participants:
+        </p>
+        <%= render 'joiners', { joiners: event.joiners } %>
+      </div>
+
+      <button class="rounded-lg py-3 px-5 bg-grey inline-block font-medium show" data-id="<%= event.id %>" onclick="showEvent(this)">
+        Show Details
+      </button>
+    <% else %>
+      <div class="flex flex-col">
+        <p class="">
+          Participants:
+        </p>
+        <div class="flex flex-col h-full my-">
+          <%= render 'all_joiners', { joiners: event.joiners } %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
